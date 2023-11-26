@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-
 class Conv2dWithConstraint(nn.Conv2d):
     def __init__(self, *args, max_norm: int = 1, **kwargs):
         self.max_norm = max_norm
@@ -85,8 +84,11 @@ class EEGNet(nn.Module):
                                  stride=1,
                                  padding=(0, 0),
                                  groups=self.F1,
-                                 bias=False), nn.BatchNorm2d(self.F1 * self.D, momentum=0.01, affine=True, eps=1e-3),
-            nn.ELU(), nn.AvgPool2d((1, 4), stride=4), nn.Dropout(p=dropout))
+                                 bias=False),
+            nn.BatchNorm2d(self.F1 * self.D, momentum=0.01, affine=True, eps=1e-3),
+            nn.ELU(),
+            nn.AvgPool2d((1, 4), stride=2),
+            nn.Dropout(p=dropout))
 
         self.block2 = nn.Sequential(
             nn.Conv2d(self.F1 * self.D,
@@ -96,10 +98,13 @@ class EEGNet(nn.Module):
                       bias=False,
                       groups=self.F1 * self.D),
             nn.Conv2d(self.F1 * self.D, self.F2, 1, padding=(0, 0), groups=1, bias=False, stride=1),
-            nn.BatchNorm2d(self.F2, momentum=0.01, affine=True, eps=1e-3), nn.ELU(), nn.AvgPool2d((1, 8), stride=8),
-            nn.Dropout(p=dropout))
+            nn.BatchNorm2d(self.F2, momentum=0.01, affine=True, eps=1e-3),
+            nn.ELU(),
+            nn.AvgPool2d((1, 4), stride=2),
+            # nn.Dropout(p=dropout)
+        )
 
-        self.lin = nn.Linear(self.F2 * self.feature_dim, num_classes, bias=False)
+        self.lin_cl = nn.Linear(self.F2 * self.feature_dim, num_classes, bias=False) # input(16*3=48)
 
     @property
     def feature_dim(self):
@@ -123,7 +128,8 @@ class EEGNet(nn.Module):
         x = self.block1(x)
         x = self.block2(x)
         x = x.flatten(start_dim=1)
-        x = self.lin(x)
+        x = self.lin_cl(x)
+        # senza softmax perche presente nella loss nn.CrossEntropyLoss()
 
         return x
 
@@ -155,7 +161,7 @@ class LSTM(nn.Module):
     '''
     def __init__(self,
                  num_electrodes: int = 32,
-                 hid_channels: int = 64,
+                 hid_channels: int = 20,
                  num_classes: int = 2):
         super(LSTM, self).__init__()
 
@@ -163,11 +169,12 @@ class LSTM(nn.Module):
         self.hid_channels = hid_channels
         self.num_classes = num_classes
 
-        self.gru_layer = nn.LSTM(input_size=num_electrodes,
+        self.lstm_layer = nn.LSTM(input_size=num_electrodes,
                                  hidden_size=hid_channels,
                                  num_layers=2,
                                  bias=True,
-                                 batch_first=True)
+                                 batch_first=True,
+                                 dropout=0.3)
 
         self.out = nn.Linear(hid_channels, num_classes)
 
@@ -180,10 +187,13 @@ class LSTM(nn.Module):
             torch.Tensor[number of sample, number of classes]: the predicted probability that the samples belong to the classes.
         '''
         x = x.permute(0, 2, 1)
+        # print(x.shape)
 
-        r_out, (_, _) = self.gru_layer(x, None)
-        r_out = F.dropout(r_out, 0.3)
+        r_out, (_, _) = self.lstm_layer(x, None)
+        # print(r_out.shape)
+        # r_out = F.dropout(r_out, 0.3)
         x = self.out(r_out[:, -1, :])  # choose r_out at the last time step
+        # print(x.shape)
         return x
 
 class GRU(nn.Module):
@@ -245,4 +255,145 @@ class GRU(nn.Module):
         r_out, (_, _) = self.gru_layer(x, None)
         r_out = F.dropout(r_out, 0.3)
         x = self.out(r_out[:, -1, :])  # choose r_out at the last time step
+        return x
+    
+class easy(nn.Module):
+    
+    def __init__(self,
+                 chunk_size: int = 151,
+                 num_electrodes: int = 60,
+                 num_classes: int = 2,
+                 kernel_2: int = 10
+                 ):
+        super().__init__()
+        self.chunk_size = chunk_size
+        self.num_classes = num_classes
+        self.num_electrodes = num_electrodes
+        self.kernel_2 = kernel_2
+
+        # torch.nn.Conv2d(in_channels, out_channels, kernel_size
+        self.lstm_layer = nn.LSTM(input_size=num_electrodes, hidden_size=32, num_layers=1, bias=False, batch_first=True)
+        
+        self.block1 = nn.Sequential(
+            nn.ReLU(),
+            nn.AvgPool1d(2, stride=2),
+            # nn.BatchNorm1d(32, momentum=0.01, affine=True, eps=1e-3),
+            nn.Dropout(p=0.5)
+            )
+
+        self.block2 = nn.Sequential(
+            nn.Conv1d(32, 64, self.kernel_2, stride=1, padding=self.kernel_2 // 2, bias=False),
+            nn.ReLU(),
+            nn.AvgPool1d(5, stride=5),
+            # nn.BatchNorm2d(self.F2, momentum=0.01, affine=True, eps=1e-3)
+            )
+        
+
+        self.lin = nn.Linear(640, num_classes, bias=False)
+
+
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        
+        x = x.permute(0, 2, 1)
+        x = self.lstm_layer(x)[0]
+        x = x.permute(0, 2, 1)
+        x = self.block1(x)
+        x = self.block2(x)
+        x = x.flatten(start_dim=1)
+        # print(x.shape)
+        x = self.lin(x)
+
+        return x
+    
+class spectr_model(nn.Module):
+
+    def __init__(self,
+                #  n_freq: int = 7,
+                #  n_time: int = 21,
+                 num_electrodes: int = 17,
+                 num_classes: int = 100
+                 ):
+        super().__init__()
+        # self.n_freq = n_freq
+        # self.n_time = n_time
+        self.num_classes = num_classes
+        self.num_electrodes = num_electrodes
+
+        self.block1 = nn.Sequential(
+            nn.Conv2d(num_electrodes, 32, (3, 3), stride=1, padding=1, bias=False),
+            nn.AvgPool2d((2,2), stride=2)
+            )
+        
+        self.block2 = nn.Sequential(
+            nn.Conv2d(32, 64, (3, 3), stride=1, padding=1, bias=False),
+            nn.AvgPool2d((6,5), stride=1)
+            )
+
+        self.lin = nn.Linear(64, num_classes, bias=False)
+
+
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = self.block1(x)
+        x = self.block2(x)
+        x = x.flatten(start_dim=1)
+        x = self.lin(x)
+
+        return x
+    
+class TSconv(nn.Module):
+    
+    def __init__(self,
+                 chunk_size: int = 100,
+                 num_electrodes: int = 17,
+                 num_classes: int = 100,
+                 m1: int = 25,
+                 m2: int = 51,
+                 k: int = 40,
+                 s2: int = 5
+                 ):
+        super().__init__()
+        self.chunk_size = chunk_size
+        self.num_classes = num_classes
+        self.num_electrodes = num_electrodes
+        self.m1 = m1
+        self.m2 = m2
+        self.k = k
+        self.s2 = s2
+
+        # torch.nn.Conv2d(in_channels, out_channels, kernel_size
+        self.block = nn.Sequential(
+            nn.Conv2d(1, k, (1, m1), stride=(1, 1), padding=(0, 0), bias=False),
+            nn.BatchNorm2d(k, momentum=0.01, affine=True, eps=1e-3),
+            nn.ELU(),
+            nn.AvgPool2d((1, m2), stride=(1, s2)),
+
+            nn.Conv2d(k, k, (num_electrodes, 1), stride=(1, 1), padding=(0, 0), bias=False),
+            nn.BatchNorm2d(k, momentum=0.01, affine=True, eps=1e-3),
+            nn.ELU(),
+            )
+        
+        self.lin = nn.Linear(240, num_classes, bias=False)
+        # self.lin2 = nn.Linear(num_classes, num_classes, bias=False)
+        
+
+    # @property
+    # def feature_dim(self):
+    #     with torch.no_grad():
+    #         mock_eeg = torch.zeros(1, 1, self.num_electrodes, self.chunk_size).to('cuda')
+
+    #         mock_eeg = self.block(mock_eeg)
+
+    #     return mock_eeg.shape[3]
+
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        x = x.unsqueeze(dim=1)
+        x = self.block(x)
+        x = x.flatten(start_dim=1)
+        # print(self.k * self.feature_dim)
+        x = self.lin(x)
+        # x = self.lin2(x)
+
         return x

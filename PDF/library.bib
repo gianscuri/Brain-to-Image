@@ -1,0 +1,510 @@
+@article{Palazzo2017,
+   abstract = {Recent advancements in generative adversarial networks (GANs), using deep convolutional models, have supported the development of image generation techniques able to reach satisfactory levels of realism. Further improvements have been proposed to condition GANs to generate images matching a specific object category or a short text description. In this work, we build on the latter class of approaches and investigate the possibility of driving and conditioning the image generation process by means of brain signals recorded, through an electroencephalograph (EEG), while users look at images from a set of 40 ImageNet object categories with the objective of generating the seen images. To accomplish this task, we first demonstrate that brain activity EEG signals encode visually-related information that allows us to accurately discriminate between visual object categories and, accordingly, we extract a more compact class-dependent representation of EEG data using recurrent neural networks. Afterwards, we use the learned EEG manifold to condition image generation employing GANs, which, during inference, will read EEG signals and convert them into images. We tested our generative approach using EEG signals recorded from six subjects while looking at images of the aforementioned 40 visual classes. The results show that for classes represented by well-defined visual patterns (e.g., pandas, airplane, etc.), the generated images are realistic and highly resemble those evoking the EEG signals used for conditioning GANs, resulting in an actual reading-the-mind process.},
+   author = {S. Palazzo and C. Spampinato and I. Kavasidis and D. Giordano and M. Shah},
+   doi = {10.1109/ICCV.2017.369},
+   isbn = {9781538610329},
+   issn = {15505499},
+   journal = {Proceedings of the IEEE International Conference on Computer Vision},
+   month = {12},
+   pages = {3430-3438},
+   publisher = {Institute of Electrical and Electronics Engineers Inc.},
+   title = {Generative Adversarial Networks Conditioned by Brain Signals},
+   volume = {2017-October},
+   year = {2017},
+}
+@article{Spampinato2016,
+   abstract = {What if we could effectively read the mind and transfer human visual
+capabilities to computer vision methods? In this paper, we aim at addressing
+this question by developing the first visual object classifier driven by human
+brain signals. In particular, we employ EEG data evoked by visual object
+stimuli combined with Recurrent Neural Networks (RNN) to learn a discriminative
+brain activity manifold of visual categories. Afterwards, we train a
+Convolutional Neural Network (CNN)-based regressor to project images onto the
+learned manifold, thus effectively allowing machines to employ human
+brain-based features for automated visual classification. We use a 32-channel
+EEG to record brain activity of seven subjects while looking at images of 40
+ImageNet object classes. The proposed RNN based approach for discriminating
+object classes using brain signals reaches an average accuracy of about 40%,
+which outperforms existing methods attempting to learn EEG visual object
+representations. As for automated object categorization, our human brain-driven
+approach obtains competitive performance, comparable to those achieved by
+powerful CNN models, both on ImageNet and CalTech 101, thus demonstrating its
+classification and generalization capabilities. This gives us a real hope that,
+indeed, human mind can be read and transferred to machines.},
+   author = {C. Spampinato and S. Palazzo and I. Kavasidis and D. Giordano and N. Souly and M. Shah},
+   doi = {10.48550/arxiv.1609.00344},
+   isbn = {9781538604571},
+   journal = {Proceedings - 30th IEEE Conference on Computer Vision and Pattern Recognition, CVPR 2017},
+   month = {9},
+   pages = {4503-4511},
+   publisher = {Institute of Electrical and Electronics Engineers Inc.},
+   title = {Deep Learning Human Mind for Automated Visual Classification},
+   volume = {2017-January},
+   url = {https://arxiv.org/abs/1609.00344v2},
+   year = {2016},
+}
+@article{Kavasidis2017,
+   abstract = {Reading the human mind has been a hot topic in the last decades, and recent research in neuroscience has found evidence on the possibility of decoding, from neuroimaging data, how the human brain works. At the same time, the recent rediscovery of deep learning combined to the large interest of scientific community on generative methods has enabled the generation of realistic images by learning a data distribution from noise. The quality of generated images increases when the input data conveys information on visual content of images. Leveraging on these recent trends, in this paper we present an approach for generating images using visually-evoked brain signals recorded through an electroencephalograph (EEG). More specifically, we recorded EEG data from several subjects while observing images on a screen and tried to regenerate the seen images. To achieve this goal, we developed a deep-learning framework consisting of an LSTM stacked with a generative method, which learns a more compact and noise-free representation of EEG data and employs it to generate the visual stimuli evoking specific brain responses. Our Brain2Image approach was trained and tested using EEG data from six subjects while they were looking at images from 40 ImageNet classes. As generative models, we compared variational autoencoders (VAE) and generative adversarial networks (GAN). The results show that, indeed, our approach is able to generate an image drawn from the same distribution of the shown images. Furthermore, GAN, despite generating less realistic images, show better performance than VAE, especially as concern sharpness. The obtained performance provides useful hints on the fact that EEG contains patterns related to visual content and that such patterns can be used to effectively generate images that are semantically coherent to the evoking visual stimuli.},
+   author = {Isaak Kavasidis and Simone Palazzo and Concetto Spampinato and Daniela Giordano and Mubarak Shah},
+   doi = {10.1145/3123266.3127907},
+   isbn = {9781450349062},
+   journal = {MM 2017 - Proceedings of the 2017 ACM Multimedia Conference},
+   keywords = {EEG,Image generation,Variational autoencoder},
+   month = {10},
+   pages = {1809-1817},
+   publisher = {Association for Computing Machinery, Inc},
+   title = {Brain2Image: Converting brain signals into images},
+   year = {2017},
+}
+@article{Palazzo2018,
+   abstract = {This work presents a novel method of exploring human brain-visual
+representations, with a view towards replicating these processes in machines.
+The core idea is to learn plausible computational and biological
+representations by correlating human neural activity and natural images. Thus,
+we first propose a model, EEG-ChannelNet, to learn a brain manifold for EEG
+classification. After verifying that visual information can be extracted from
+EEG data, we introduce a multimodal approach that uses deep image and EEG
+encoders, trained in a siamese configuration, for learning a joint manifold
+that maximizes a compatibility measure between visual features and brain
+representations. We then carry out image classification and saliency detection
+on the learned manifold. Performance analyses show that our approach
+satisfactorily decodes visual information from neural signals. This, in turn,
+can be used to effectively supervise the training of deep learning models, as
+demonstrated by the high performance of image classification and saliency
+detection on out-of-training classes. The obtained results show that the
+learned brain-visual features lead to improved performance and simultaneously
+bring deep models more in line with cognitive neuroscience work related to
+visual perception and attention.},
+   author = {Simone Palazzo and Concetto Spampinato and Isaak Kavasidis and Daniela Giordano and Joseph Schmidt and Mubarak Shah},
+   doi = {10.48550/arxiv.1810.10974},
+   issn = {19393539},
+   issue = {11},
+   journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+   keywords = {Brain-visual embedding,multimodal learning,unsupervised learning},
+   month = {10},
+   note = {Gia in questo paper avevano detto che c'é un errore},
+   pages = {3833-3849},
+   pmid = {32750768},
+   publisher = {IEEE Computer Society},
+   title = {Decoding Brain Representations by Multimodal Learning of Neural Activity and Visual Features},
+   volume = {43},
+   url = {https://arxiv.org/abs/1810.10974v2},
+   year = {2018},
+}
+@article{Khaleghi2022,
+   abstract = {Reaching out the function of the brain in perceiving input data from the outside world is one of the great targets of neuroscience. Neural decoding helps us to model the connection between brain activities and the visual stimulation. The reconstruction of images from brain activity can be achieved through this modelling. Recent studies have shown that brain activity is impressed by visual saliency, the important parts of an image stimuli. In this paper, a deep model is proposed to reconstruct the image stimuli from electroencephalogram (EEG) recordings via visual saliency. To this end, the proposed geometric deep network-based generative adversarial network (GDN-GAN) is trained to map the EEG signals to the visual saliency maps corresponding to each image. The first part of the proposed GDN-GAN consists of Chebyshev graph convolutional layers. The input of the GDN part of the proposed network is the functional connectivity-based graph representation of the EEG channels. The output of the GDN is imposed to the GAN part of the proposed network to reconstruct the image saliency. The proposed GDN-GAN is trained using the Google Colaboratory Pro platform. The saliency metrics validate the viability and efficiency of the proposed saliency reconstruction network. The weights of the trained network are used as initial weights to reconstruct the grayscale image stimuli. The proposed network realizes the image reconstruction from EEG signals.},
+   author = {Nastaran Khaleghi and Tohid Yousefi Rezaii and Soosan Beheshti and Saeed Meshgini and Sobhan Sheykhivand and Sebelan Danishvar},
+   doi = {10.3390/ELECTRONICS11213637},
+   issn = {20799292},
+   issue = {21},
+   journal = {Electronics (Switzerland)},
+   keywords = {electroencephalogram,generative adversarial network,geometric deep network,image reconstruction,visual saliency},
+   month = {11},
+   publisher = {MDPI},
+   title = {Visual Saliency and Image Reconstruction from EEG Signals via an Effective Geometric Deep Network-Based Generative Adversarial Network},
+   volume = {11},
+   year = {2022},
+}
+@article{Vivancos2022,
+   abstract = {Understanding our brain is one of the most daunting tasks, one we cannot
+expect to complete without the use of technology. MindBigData aims to provide a
+comprehensive and updated dataset of brain signals related to a diverse set of
+human activities so it can inspire the use of machine learning algorithms as a
+benchmark of 'decoding' performance from raw brain activities into its
+corresponding (labels) mental (or physical) tasks. Using commercial of the
+self, EEG devices or custom ones built by us to explore the limits of the
+technology. We describe the data collection procedures for each of the sub
+datasets and with every headset used to capture them. Also, we report possible
+applications in the field of Brain Computer Interfaces or BCI that could impact
+the life of billions, in almost every sector like healthcare game changing use
+cases, industry or entertainment to name a few, at the end why not directly
+using our brains to 'disintermediate' senses, as the final HCI (Human-Computer
+Interaction) device? simply what we call the journey from Type to Touch to Talk
+to Think.},
+   author = {David Vivancos and Felix Cuesta},
+   doi = {10.48550/arxiv.2212.14746},
+   isbn = {09835506_15262},
+   month = {12},
+   note = {Nuovo dataset non pubblico(?)},
+   title = {MindBigData 2022 A Large Dataset of Brain Signals},
+   url = {https://arxiv.org/abs/2212.14746v1},
+   year = {2022},
+}
+@article{Palazzo2020,
+   abstract = {It is argued in [1] that [2] was able to classify EEG responses to visual
+stimuli solely because of the temporal correlation that exists in all EEG data
+and the use of a block design. We here show that the main claim in [1] is
+drastically overstated and their other analyses are seriously flawed by wrong
+methodological choices. To validate our counter-claims, we evaluate the
+performance of state-of-the-art methods on the dataset in [2] reaching about
+50% classification accuracy over 40 classes, lower than in [2], but still
+significant. We then investigate the influence of EEG temporal correlation on
+classification accuracy by testing the same models in two additional
+experimental settings: one that replicates [1]'s rapid-design experiment, and
+another one that examines the data between blocks while subjects are shown a
+blank screen. In both cases, classification accuracy is at or near chance, in
+contrast to what [1] reports, indicating a negligible contribution of temporal
+correlation to classification accuracy. We, instead, are able to replicate the
+results in [1] only when intentionally contaminating our data by inducing a
+temporal correlation. This suggests that what Li et al. [1] demonstrate is that
+their data are strongly contaminated by temporal correlation and low
+signal-to-noise ratio. We argue that the reason why Li et al. [1] observe such
+high correlation in EEG data is their unconventional experimental design and
+settings that violate the basic cognitive neuroscience design recommendations,
+first and foremost the one of limiting the experiments' duration, as instead
+done in [2]. Our analyses in this paper refute the claims of the "perils and
+pitfalls of block-design" in [1]. Finally, we conclude the paper by examining a
+number of other oversimplistic statements, inconsistencies, misinterpretation
+of machine learning concepts, speculations and misleading claims in [1].},
+   author = {Simone Palazzo and Concetto Spampinato and Joseph Schmidt and Isaak Kavasidis and Daniela Giordano and Mubarak Shah},
+   doi = {10.48550/arxiv.2012.03849},
+   month = {11},
+   note = {Risposta alle critiche di Johansen, Ahmed,..},
+   title = {Correct block-design experiments mitigate temporal correlation bias in EEG classification},
+   url = {https://arxiv.org/abs/2012.03849v1},
+   year = {2020},
+}
+@article{Li2021,
+   abstract = {A recent paper [1] claims to classify brain processing evoked in subjects watching ImageNet stimuli as measured with EEG and to employ a representation derived from this processing to construct a novel object classifier. That paper, together with a series of subsequent papers [2] , [3] , [4] , [5] , [6] , [7] , [8] , claims to achieve successful results on a wide variety of computer-vision tasks, including object classification, transfer learning, and generation of images depicting human perception and thought using brain-derived representations measured through EEG. Our novel experiments and analyses demonstrate that their results crucially depend on the block design that they employ, where all stimuli of a given class are presented together, and fail with a rapid-event design, where stimuli of different classes are randomly intermixed. The block design leads to classification of arbitrary brain states based on block-level temporal correlations that are known to exist in all EEG data, rather than stimulus-related activity. Because every trial in their test sets comes from the same block as many trials in the corresponding training sets, their block design thus leads to classifying arbitrary temporal artifacts of the data instead of stimulus-related activity. This invalidates all subsequent analyses performed on this data in multiple published papers and calls into question all of the reported results. We further show that a novel object classifier constructed with a random codebook performs as well as or better than a novel object classifier constructed with the representation extracted from EEG data, suggesting that the performance of their classifier constructed with a representation extracted from EEG data does not benefit from the brain-derived representation. Together, our results illustrate the far-reaching implications of the temporal autocorrelations that exist in all neuroimaging data for classification experiments. Further, our results calibrate the underlying difficulty of the tasks involved and caution against overly optimistic, but incorrect, claims to the contrary.},
+   author = {Ren Li and Jared S. Johansen and Hamad Ahmed and Thomas V. Ilyevsky and Ronnie B. Wilbur and Hari M. Bharadwaj and Jeffrey Mark Siskind},
+   doi = {10.1109/TPAMI.2020.2973153},
+   issn = {19393539},
+   issue = {1},
+   journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+   keywords = {EEG,Object classification,neuroimaging},
+   month = {1},
+   note = {Critica ai lavori di Spampinato e Palazzo},
+   pages = {316-333},
+   publisher = {IEEE Computer Society},
+   title = {The Perils and Pitfalls of Block Design for EEG Classification Experiments},
+   volume = {43},
+   year = {2021},
+}
+@article{Mishra2022,
+   abstract = {While capable of segregating visual data, humans take time to examine a single piece, let alone thousands or millions of samples. The deep learning models efficiently process sizeable information with the help of modern-day computing. However, their questionable decision-making process has raised considerable concerns. Recent studies have identified a new approach to extract image features from EEG signals and combine them with standard image features. These approaches make deep learning models more interpretable and also enables faster converging of models with fewer samples. Inspired by recent studies, we developed an efficient way of encoding EEG signals as images to facilitate a more subtle understanding of brain signals with deep learning models. Using two variations in such encoding methods, we classified the encoded EEG signals corresponding to 39 image classes with a benchmark accuracy of 70% on the layered dataset of six subjects, which is significantly higher than the existing work. Our image classification approach with combined EEG features achieved an accuracy of 82% compared to the slightly better accuracy of a pure deep learning approach; nevertheless, it demonstrates the viability of the theory.},
+   author = {Alankrit Mishra and Nikhil Raj and Garima Bajwa},
+   doi = {10.1109/IDSTA55301.2022.9923087},
+   isbn = {9781665499606},
+   journal = {2022 International Conference on Intelligent Data Science Technologies and Applications, IDSTA 2022},
+   keywords = {EEG image encoding,ImageNet,computer vision,deep learning,multi-modal fusion,transfer learning,visual classification},
+   note = {Ottima sezione di Related Work che spiega la diatriba},
+   pages = {181-188},
+   publisher = {Institute of Electrical and Electronics Engineers Inc.},
+   title = {EEG-based Image Feature Extraction for Visual Classification using Deep Learning},
+   year = {2022},
+}
+@article{Zeng2023,
+   abstract = {How to design a suitable model to extract the semantic features contained in Electroencephalography (EEG) and to visualize them as corresponding images, also known as Reconstruction from EEG to Image (RE2I), plays an important role in promoting EEG-based brain–computer interface (BCI) applications. However, due to the low signal-to-noise ratio (SNR) and the significant individual differences of EEG, it is difficult to extract semantic features contained in EEG signals effectively, making the implementation of RE2I still a huge challenge. In this study, we propose a dual conditional convolutional auto-encoder framework (DCAE) to tackle this challenge. DCAE framework includes two parts: The first part aims to extract and fuse features by means of a multimodal learning method from both EEG and its corresponding real images, and the other part aims to generate images with the same semantics as the corresponding EEG by the EEG-UNet module. The experimental results show DCAE outperforms most of the existing state-of-the-art models, which might bring a novel idea in the implementation of RE2I.},
+   author = {Hong Zeng and Nianzhang Xia and Ming Tao and Deng Pan and Haohao Zheng and Chu Wang and Feifan Xu and Wael Zakaria and Guojun Dai},
+   doi = {10.1016/J.BSPC.2022.104440},
+   issn = {1746-8094},
+   journal = {Biomedical Signal Processing and Control},
+   keywords = {DCAE,EEG,Image,RE2I,Semantic feature},
+   month = {3},
+   note = {ricostruisce immagini con la stessa semantica da 4 classi (non sembra molto utile)<br/>},
+   pages = {104440},
+   publisher = {Elsevier},
+   title = {DCAE: A dual conditional autoencoder framework for the reconstruction from EEG into image},
+   volume = {81},
+   year = {2023},
+}
+@article{Deng2023,
+   abstract = {In last few decades, reading the human mind is an innovative topic in scientific research. Recent studies in neuroscience indicate that it is possible to decode the signals of the human brain based on the neuroimaging data. The work in this paper explores the possibility of building an end-to-end BCI system to learn and visualize the brain thoughts evoked by the stimulating images. To achieve this goal, it designs an experiment to collect the EEG signals evoked by randomly presented images. Based on these data, this work analyzes and compares the classification abilities by several improved methods, including the Transformer, CapsNet and the ensemble strategies. After obtaining the optimal method to be the encoder, this paper proposes a distribution-to-distribution mapping network to transform an encoded latent feature vector into a prior image feature vector. To visualize the brain thoughts, a pretrained IC-GAN model is used to receive these image feature vectors and generate images. Extensive experiments are carried out and the results show that the proposed method can effectively deal with the small sample data original from the less electrode channels. By examining the generated images coming from the EEG signals, it verifies that the proposed model is capable of reproducing the images seen by human eyes to some extent.},
+   author = {Xin Deng and Zhongyin Wang and Ke Liu and Xiaohong Xiang},
+   doi = {10.1016/J.JNEUMETH.2022.109747},
+   issn = {0165-0270},
+   journal = {Journal of Neuroscience Methods},
+   keywords = {BCI,Deep learning,EEG,EEGNet,Vision stimulus generation},
+   month = {1},
+   pages = {109747},
+   pmid = {36427669},
+   publisher = {Elsevier},
+   title = {A GAN model encoded by CapsEEGNet for visual EEG encoding and image reproduction},
+   volume = {384},
+   year = {2023},
+}
+@article{Khaleghi2023,
+   abstract = {Neural decoding is of great importance in computational neuroscience to automatically interpret brain activities in order to address the challenging problem of mind-reading. Analyzing the vision-related EEG records is of great importance to discern the relation between visual perception and brain activity. Considering the recent advances and achievements in the field of deep neural networks, several architectures have been implemented to decode brain activities. In this paper, functional connectivity-based geometric deep network (FC-GDN) is proposed to leverage the spatio-temporal distributed information in EEG recordings evoked by images to directly extract hidden states of high-resolution time samples considering the functional connectivity between EEG channels. To this end, a topological connectivity graph is constructed based on the functional connectivity between EEG channels and time samples of each EEG channel are considered as a graph signal on top of corresponding graph node. Furthermore, a novel graph neural network architecture based on this efficient graph representation of EEG signals is proposed, in which visually provoked EEG recordings are used as training data in order to decode visual perception state of the participants in terms of extracted EEG patterns related to different image categories. The performance of the proposed FC-GDN is evaluated on the EEG-ImageNet dataset, consisting of 40 image categories and each category includes 50 sample images, shown to 6 participants while their EEG signals were recorded. The average accuracy of 98.4% is obtained for FC-GDN, showing an average improvement of 1.1% compared to the best state-of-the-art method.},
+   author = {Nastaran Khaleghi and Tohid Yousefi Rezaii and Soosan Beheshti and Saeed Meshgini},
+   doi = {10.1016/J.BSPC.2022.104221},
+   issn = {1746-8094},
+   journal = {Biomedical Signal Processing and Control},
+   keywords = {Decoding visual stimuli,Electroencephalogram,Functional connectivity,Geometric deep learning},
+   month = {2},
+   note = {molto simile a visual saliency and image reconstruction<br/>},
+   pages = {104221},
+   publisher = {Elsevier},
+   title = {Developing an efficient functional connectivity-based geometric deep network for automatic EEG-based visual decoding},
+   volume = {80},
+   year = {2023},
+}
+@article{Niso2022,
+   abstract = {Good scientific practice (GSP) refers to both explicit and implicit rules, recommendations, and guidelines that help scientists to produce work that is of the highest quality at any given time, and to efficiently share that work with the community for further scrutiny or utilization. For experimental research using magneto- and electroencephalography (MEEG), GSP includes specific standards and guidelines for technical competence, which are periodically updated and adapted to new findings. However, GSP also needs to be regularly revisited in a broader light. At the LiveMEEG 2020 conference, a reflection on GSP was fostered that included explicitly documented guidelines and technical advances, but also emphasized intangible GSP: a general awareness of personal, organizational, and societal realities and how they can influence MEEG research. This article provides an extensive report on most of the LiveMEEG contributions and new literature, with the additional aim to synthesize ongoing cultural changes in GSP. It first covers GSP with respect to cognitive biases and logical fallacies, pre-registration as a tool to avoid those and other early pitfalls, and a number of resources to enable collaborative and reproducible research as a general approach to minimize misconceptions. Second, it covers GSP with respect to data acquisition, analysis, reporting, and sharing, including new tools and frameworks to support collaborative work. Finally, GSP is considered in light of ethical implications of MEEG research and the resulting responsibility that scientists have to engage with societal challenges. Considering among other things the benefits of peer review and open access at all stages, the need to coordinate larger international projects, the complexity of MEEG subject matter, and today's prioritization of fairness, privacy, and the environment, we find that current GSP tends to favor collective and cooperative work, for both scientific and for societal reasons.},
+   author = {Guiomar Niso and Laurens R. Krol and Etienne Combrisson and A. Sophie Dubarry and Madison A. Elliott and Clément François and Yseult Héjja-Brichard and Sophie K. Herbst and Karim Jerbi and Vanja Kovic and Katia Lehongre and Steven J. Luck and Manuel Mercier and John C. Mosher and Yuri G. Pavlov and Aina Puce and Antonio Schettino and Daniele Schön and Walter Sinnott-Armstrong and Bertille Somon and Anđela Šoškić and Suzy J. Styles and Roni Tibon and Martina G. Vilas and Marijn van Vliet and Maximilien Chaumon},
+   doi = {10.1016/J.NEUROIMAGE.2022.119056},
+   issn = {1095-9572},
+   journal = {NeuroImage},
+   keywords = {Electroencephalography*,Extramural,Guiomar Niso,Humans,Laurens R Krol,MEDLINE,Maximilien Chaumon,N.I.H.,NCBI,NIH,NLM,National Center for Biotechnology Information,National Institutes of Health,National Library of Medicine,Non-U.S. Gov't,PubMed Abstract,Research Support,doi:10.1016/j.neuroimage.2022.119056,pmid:35283287},
+   month = {8},
+   pmid = {35283287},
+   publisher = {Neuroimage},
+   title = {Good scientific practice in EEG and MEG research: Progress and perspectives},
+   volume = {257},
+   url = {https://pubmed.ncbi.nlm.nih.gov/35283287/},
+   year = {2022},
+}
+@article{Roy2019,
+   abstract = {Context. Electroencephalography (EEG) is a complex signal and can require several years of training, as well as advanced signal processing and feature extraction methodologies to be correctly interpreted. Recently, deep learning (DL) has shown great promise in helping make sense of EEG signals due to its capacity to learn good feature representations from raw data. Whether DL truly presents advantages as compared to more traditional EEG processing approaches, however, remains an open question. Objective. In this work, we review 154 papers that apply DL to EEG, published between January 2010 and July 2018, and spanning different application domains such as epilepsy, sleep, brain-computer interfacing, and cognitive and affective monitoring. We extract trends and highlight interesting approaches from this large body of literature in order to inform future research and formulate recommendations. Methods. Major databases spanning the fields of science and engineering were queried to identify relevant studies published in scientific journals, conferences, and electronic preprint repositories. Various data items were extracted for each study pertaining to (1) the data, (2) the preprocessing methodology, (3) the DL design choices, (4) the results, and (5) the reproducibility of the experiments. These items were then analyzed one by one to uncover trends. Results. Our analysis reveals that the amount of EEG data used across studies varies from less than ten minutes to thousands of hours, while the number of samples seen during training by a network varies from a few dozens to several millions, depending on how epochs are extracted. Interestingly, we saw that more than half the studies used publicly available data and that there has also been a clear shift from intra-subject to inter-subject approaches over the last few years.across all relevant studies. More importantly, however, we noticed studies often suffer from poor reproducibility: a majority of papers would be hard or impossible to reproduce given the unavailability of their data and code. Significance. To help the community progress and share work more effectively, we provide a list of recommendations for future studies and emphasize the need for more reproducible research. We also make our summary table of DL and EEG papers available and invite authors of published work to contribute to it directly. A planned follow-up to this work will be an online public benchmarking portal listing reproducible results.},
+   author = {Yannick Roy and Hubert Banville and Isabela Albuquerque and Alexandre Gramfort and Tiago H. Falk and Jocelyn Faubert},
+   doi = {10.1088/1741-2552/AB260C},
+   issn = {1741-2552},
+   issue = {5},
+   journal = {Journal of Neural Engineering},
+   month = {8},
+   pages = {051001},
+   pmid = {31151119},
+   publisher = {IOP Publishing},
+   title = {Deep learning-based electroencephalography analysis: a systematic review},
+   volume = {16},
+   url = {https://iopscience.iop.org/article/10.1088/1741-2552/ab260c https://iopscience.iop.org/article/10.1088/1741-2552/ab260c/meta},
+   year = {2019},
+}
+@article{Fares2019,
+   abstract = {Background: As a physiological signal, EEG data cannot be subjectively changed or hidden. Compared with other physiological signals, EEG signals are directly related to human cortical activities with excellent temporal resolution. After the rapid development of machine learning and artificial intelligence, the analysis and calculation of EEGs has made great progress, leading to a significant boost in performances for content understanding and pattern recognition of brain activities across the areas of both neural science and computer vision. While such an enormous advance has attracted wide range of interests among relevant research communities, EEG-based classification of brain activities evoked by images still demands efforts for further improvement with respect to its accuracy, generalization, and interpretation, yet some characters of human brains have been relatively unexplored. Methods: We propose a region-level stacked bi-directional deep learning framework for EEG-based image classification. Inspired by the hemispheric lateralization of human brains, we propose to extract additional information at regional level to strengthen and emphasize the differences between two hemispheres. The stacked bi-directional long short-term memories are used to capture the dynamic correlations hidden from both the past and the future to the current state in EEG sequences. Results: Extensive experiments are carried out and our results demonstrate the effectiveness of our proposed framework. Compared with the existing state-of-the-arts, our framework achieves outstanding performances in EEG-based classification of brain activities evoked by images. In addition, we find that the signals of Gamma band are not only useful for achieving good performances for EEG-based image classification, but also play a significant role in capturing relationships between the neural activations and the specific emotional states. Conclusions: Our proposed framework provides an improved solution for the problem that, given an image used to stimulate brain activities, we should be able to identify which class the stimuli image comes from by analyzing the EEG signals. The region-level information is extracted to preserve and emphasize the hemispheric lateralization for neural functions or cognitive processes of human brains. Further, stacked bi-directional LSTMs are used to capture the dynamic correlations hidden in EEG data. Extensive experiments on standard EEG-based image classification dataset validate that our framework outperforms the existing state-of-the-arts under various contexts and experimental setups.},
+   author = {Ahmed Fares and Sheng Hua Zhong and Jianmin Jiang},
+   doi = {10.1186/S12911-019-0967-9/TABLES/3},
+   issn = {14726947},
+   issue = {6},
+   journal = {BMC Medical Informatics and Decision Making},
+   keywords = {Classification of brain activities,EEG,Region-level information,Stacked bi-directional LSTM},
+   month = {12},
+   note = {citato in "visual saliency" come confronto per performance in classificazione},
+   pages = {1-11},
+   pmid = {31856818},
+   publisher = {BioMed Central Ltd},
+   title = {EEG-based image classification via a region-level stacked bi-directional deep learning framework},
+   volume = {19},
+   url = {https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-019-0967-9},
+   year = {2019},
+}
+@article{Kaneshiro2015,
+   abstract = {The recognition of object categories is effortlessly accomplished in everyday life, yet its neural underpinnings remain not fully understood. In this electroencephalography (EEG) study, we used single-trial classification to perform a Representational Similarity Analysis (RSA) of categorical representation of objects in human visual cortex. Brain responses were recorded while participants viewed a set of 72 photographs of objects with a planned category structure. The Representational Dissimilarity Matrix (RDM) used for RSA was derived from confusions of a linear classifier operating on single EEG trials. In contrast to past studies, which used pairwise correlation or classification to derive the RDM, we used confusion matrices from multi-class classifications, which provided novel self-similarity measures that were used to derive the overall size of the representational space. We additionally performed classifications on subsets of the brain response in order to identify spatial and temporal EEG components that best discriminated object categories and exemplars. Results from category-level classifications revealed that brain responses to images of human faces formed the most distinct category, while responses to images from the two inanimate categories formed a single category cluster. Exemplar-level classifications produced a broadly similar category structure, as well as sub-clusters corresponding to natural language categories. Spatiotemporal components of the brain response that differentiated exemplars within a category were found to differ from those implicated in differentiating between categories. Our results show that a classification approach can be successfully applied to single-trial scalp-recorded EEG to recover fine-grained object category structure, as well as to identify interpretable spatiotemporal components underlying object processing. Finally, object category can be decoded from purely temporal information recorded at single electrodes.},
+   author = {Blair Kaneshiro and Marcos Perreau Guimaraes and Hyung Suk Kim and Anthony M. Norcia and Patrick Suppes},
+   doi = {10.1371/JOURNAL.PONE.0135697},
+   issn = {19326203},
+   issue = {8},
+   journal = {PLoS ONE},
+   keywords = {Center for the Study of Language and Information,Stanford Department of Electrical Engineering,Stanford Department of Psychology},
+   month = {8},
+   pmid = {26295970},
+   publisher = {Public Library of Science},
+   title = {A representational similarity analysis of the dynamics of object processing using single-trial EEG classification},
+   volume = {10},
+   url = {https://purl.stanford.edu/bq914sc3730},
+   year = {2015},
+}
+@article{Shimizu2022,
+   abstract = {Decoding brain activity related to specific tasks, such as imagining something, is important for brain computer interface (BCI) control. While decoding of brain signals, such as functional magnetic resonance imaging (fMRI) signals and electroencephalography (EEG) signals, during observing visual images and while imagining images has been previously reported, further development of methods for improving training, performance, and interpretation of brain data was the goal of this study. We applied a Sinc-EEGNet to decode brain activity during perception and imagination of visual stimuli, and added an attention module to extract the importance of each electrode or frequency band. We also reconstructed images from brain activity by using a generative adversarial network (GAN). By combining the EEG recorded during a visual task (perception) and an imagination task, we have successfully boosted the accuracy of classifying EEG data in the imagination task and improved the quality of reconstruction by GAN. Our result indicates that the brain activity evoked during the visual task is present in the imagination task and can be used for better classification of the imagined image. By using the attention module, we can derive the spatial weights in each frequency band and contrast spatial or frequency importance between tasks from our model. Imagination tasks are classified by low frequency EEG signals over temporal cortex, while perception tasks are classified by high frequency EEG signals over occipital and frontal cortex. Combining data sets in training results in a balanced model improving classification of the imagination task without significantly changing performance in the visual task. Our approach not only improves performance and interpretability but also potentially reduces the burden on training since we can improve the accuracy of classifying a relatively hard task with high variability (imagination) by combining with the data of the relatively easy task, observing visual images.},
+   author = {Hirokatsu Shimizu and Ramesh Srinivasan},
+   doi = {10.1371/JOURNAL.PONE.0274847},
+   isbn = {1111111111},
+   issn = {1932-6203},
+   issue = {9},
+   journal = {PLOS ONE},
+   keywords = {Attention,Convolution,Electroencephalography,Imaging techniques,Man-computer interface,Neural networks,Speech signal processing,Vision},
+   month = {9},
+   pages = {e0274847},
+   pmid = {36129927},
+   publisher = {Public Library of Science},
+   title = {Improving classification and reconstruction of imagined images from EEG signals},
+   volume = {17},
+   url = {https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0274847},
+   year = {2022},
+}
+@article{Jiao2019,
+   abstract = {Decoding visual stimuli from brain activities is an interdisciplinary study of neuroscience and computer vision. With the emerging of Human-AI Collaboration, Human-Computer Interaction, and the development of advanced machine learning models, brain decoding based on deep learning attracts more attention. Electroencephalogram (EEG) is a widely used neurophysiology tool. Inspired by the success of deep learning on image representation and neural decoding, we proposed a visual-guided EEG decoding method that contains a decoding stage and a generation stage. In the classification stage, we designed a visual-guided convolutional neural network (CNN) to obtain more discriminative representations from EEG, which are applied to achieve the classification results. In the generation stage, the visual-guided EEG features are input to our improved deep generative model with a visual consistence module to generate corresponding visual stimuli. With the help of our visual-guided strategies, the proposed method outperforms traditional machine learning methods and deep learning models in the EEG decoding task.},
+   author = {Zhicheng Jiao and Haoxuan You and Fan Yang and Xin Li and Han Zhang and Dinggang Shen},
+   doi = {10.24963/IJCAI.2019/192},
+   isbn = {9780999241141},
+   issn = {10450823},
+   journal = {IJCAI International Joint Conference on Artificial Intelligence},
+   pages = {1387-1393},
+   publisher = {International Joint Conferences on Artificial Intelligence},
+   title = {Decoding EEG by visual-guided deep neural networks},
+   volume = {2019-August},
+   year = {2019},
+}
+@article{Lotte2018,
+   abstract = {Objective. Most current electroencephalography (EEG)-based brain-computer interfaces (BCIs) are based on machine learning algorithms. There is a large diversity of classifier types that are used in this field, as described in our 2007 review paper. Now, approximately ten years after this review publication, many new algorithms have been developed and tested to classify EEG signals in BCIs. The time is therefore ripe for an updated review of EEG classification algorithms for BCIs. Approach. We surveyed the BCI and machine learning literature from 2007 to 2017 to identify the new classification approaches that have been investigated to design BCIs. We synthesize these studies in order to present such algorithms, to report how they were used for BCIs, what were the outcomes, and to identify their pros and cons. Main results. We found that the recently designed classification algorithms for EEG-based BCIs can be divided into four main categories: adaptive classifiers, matrix and tensor classifiers, transfer learning and deep learning, plus a few other miscellaneous classifiers. Among these, adaptive classifiers were demonstrated to be generally superior to static ones, even with unsupervised adaptation. Transfer learning can also prove useful although the benefits of transfer learning remain unpredictable. Riemannian geometry-based methods have reached state-of-the-art performances on multiple BCI problems and deserve to be explored more thoroughly, along with tensor-based methods. Shrinkage linear discriminant analysis and random forests also appear particularly useful for small training samples settings. On the other hand, deep learning methods have not yet shown convincing improvement over state-of-the-art BCI methods. Significance. This paper provides a comprehensive overview of the modern classification algorithms used in EEG-based BCIs, presents the principles of these methods and guidelines on when and how to use them. It also identifies a number of challenges to further advance EEG classification in BCI.},
+   author = {F. Lotte and L. Bougrain and A. Cichocki and M. Clerc and M. Congedo and A. Rakotomamonjy and F. Yger},
+   doi = {10.1088/1741-2552/AAB2F2},
+   issn = {1741-2552},
+   issue = {3},
+   journal = {Journal of Neural Engineering},
+   keywords = {Riemannian geometry,brain-computer interfaces,classification,deep learning,electroencephalography,spatial filtering,transfer learning},
+   month = {4},
+   pages = {031005},
+   pmid = {29488902},
+   publisher = {IOP Publishing},
+   title = {A review of classification algorithms for EEG-based brain–computer interfaces: a 10 year update},
+   volume = {15},
+   url = {https://iopscience.iop.org/article/10.1088/1741-2552/aab2f2 https://iopscience.iop.org/article/10.1088/1741-2552/aab2f2/meta},
+   year = {2018},
+}
+@article{Li2018,
+   abstract = {A recent paper [31] claims to classify brain processing evoked in subjects
+watching ImageNet stimuli as measured with EEG and to use a representation
+derived from this processing to create a novel object classifier. That paper,
+together with a series of subsequent papers [8, 15, 17, 20, 21, 30, 35], claims
+to revolutionize the field by achieving extremely successful results on several
+computer-vision tasks, including object classification, transfer learning, and
+generation of images depicting human perception and thought using brain-derived
+representations measured through EEG. Our novel experiments and analyses
+demonstrate that their results crucially depend on the block design that they
+use, where all stimuli of a given class are presented together, and fail with a
+rapid-event design, where stimuli of different classes are randomly intermixed.
+The block design leads to classification of arbitrary brain states based on
+block-level temporal correlations that tend to exist in all EEG data, rather
+than stimulus-related activity. Because every trial in their test sets comes
+from the same block as many trials in the corresponding training sets, their
+block design thus leads to surreptitiously training on the test set. This
+invalidates all subsequent analyses performed on this data in multiple
+published papers and calls into question all of the purported results. We
+further show that a novel object classifier constructed with a random codebook
+performs as well as or better than a novel object classifier constructed with
+the representation extracted from EEG data, suggesting that the performance of
+their classifier constructed with a representation extracted from EEG data does
+not benefit at all from the brain-derived representation. Our results calibrate
+the underlying difficulty of the tasks involved and caution against sensational
+and overly optimistic, but false, claims to the contrary.},
+   author = {Ren Li and Jared S. Johansen and Hamad Ahmed and Thomas V. Ilyevsky and Ronnie B Wilbur and Hari M Bharadwaj and Jeffrey Mark Siskind},
+   keywords = {EEG,Index Terms-object classification,neuroimaging !},
+   month = {12},
+   title = {Training on the test set? An analysis of Spampinato et al. [31]},
+   url = {https://arxiv.org/abs/1812.07697v1},
+   year = {2018},
+}
+@article{Grootswagers2022,
+   abstract = {The neural basis of object recognition and semantic knowledge has been extensively studied but the high dimensionality of object space makes it challenging to develop overarching theories on how the brain organises object knowledge. To help understand how the brain allows us to recognise, categorise, and represent objects and object categories, there is a growing interest in using large-scale image databases for neuroimaging experiments. In the current paper, we present THINGS-EEG, a dataset containing human electroencephalography responses from 50 subjects to 1,854 object concepts and 22,248 images in the THINGS stimulus set, a manually curated and high-quality image database that was specifically designed for studying human vision. The THINGS-EEG dataset provides neuroimaging recordings to a systematic collection of objects and concepts and can therefore support a wide array of research to understand visual object processing in the human brain. Machine-accessible metadata file describing the reported data: https://doi.org/10.6084/m9.figshare.17029712},
+   author = {Tijl Grootswagers and Ivy Zhou and Amanda K. Robinson and Martin N. Hebart and Thomas A. Carlson},
+   doi = {10.1038/s41597-021-01102-7},
+   issn = {2052-4463},
+   issue = {1},
+   journal = {Scientific Data 2022 9:1},
+   keywords = {Perception,Sensory processing},
+   month = {1},
+   pages = {1-7},
+   pmid = {35013331},
+   publisher = {Nature Publishing Group},
+   title = {Human EEG recordings for 1,854 concepts presented in rapid serial visual presentation streams},
+   volume = {9},
+   url = {https://www.nature.com/articles/s41597-021-01102-7},
+   year = {2022},
+}
+@article{Gifford2022,
+   abstract = {The human brain achieves visual object recognition through multiple stages of linear and nonlinear transformations operating at a millisecond scale. To predict and explain these rapid transformations, computational neuroscientists employ machine learning modeling techniques. However, state-of-the-art models require massive amounts of data to properly train, and to the present day there is a lack of vast brain datasets which extensively sample the temporal dynamics of visual object recognition. Here we collected a large and rich dataset of high temporal resolution EEG responses to images of objects on a natural background. This dataset includes 10 participants, each with 82,160 trials spanning 16,740 image conditions. Through computational modeling we established the quality of this dataset in five ways. First, we trained linearizing encoding models that successfully synthesized the EEG responses to arbitrary images. Second, we correctly identified the recorded EEG data image conditions in a zero-shot fashion, using EEG synthesized responses to hundreds of thousands of candidate image conditions. Third, we show that both the high number of conditions as well as the trial repetitions of the EEG dataset contribute to the trained models’ prediction accuracy. Fourth, we built encoding models whose predictions well generalize to novel participants. Fifth, we demonstrate full end-to-end training of randomly initialized DNNs that output EEG responses for arbitrary input images. We release this dataset as a tool to foster research in visual neuroscience and computer vision.},
+   author = {Alessandro T. Gifford and Kshitij Dwivedi and Gemma Roig and Radoslaw M. Cichy},
+   doi = {10.1016/J.NEUROIMAGE.2022.119754},
+   issn = {1053-8119},
+   journal = {NeuroImage},
+   keywords = {Artificial neural networks,Computational neuroscience,Electroencephalography,Neural encoding models,Open-access data resource,Visual object recognition},
+   month = {12},
+   pages = {119754},
+   pmid = {36400378},
+   publisher = {Academic Press},
+   title = {A large and rich EEG dataset for modeling human visual object recognition},
+   volume = {264},
+   year = {2022},
+}
+@article{Hebart2019,
+   abstract = {In recent years, the use of a large number of object concepts and naturalistic object images has been growing strongly in cognitive neuroscience research. Classical databases of object concepts are based mostly on a manually curated set of concepts. Further, databases of naturalistic object images typically consist of single images of objects cropped from their background, or a large number of naturalistic images of varying quality, requiring elaborate manual image curation. Here we provide a set of 1,854 diverse object concepts sampled systematically from concrete picturable and nameable nouns in the American English language. Using these object concepts, we conducted a large-scale web image search to compile a database of 26,107 high-quality naturalistic images of those objects, with 12 or more object images per concept and all images cropped to square size. Using crowdsourcing, we provide higher-level category membership for the 27 most common categories and validate them by relating them to representations in a semantic embedding derived from large text corpora. Finally, by feeding images through a deep convolutional neural network, we demonstrate that they exhibit high selectivity for different object concepts, while at the same time preserving variability of different object images within each concept. Together, the THINGS database provides a rich resource of object concepts and object images and offers a tool for both systematic and large-scale naturalistic research in the fields of psychology, neuroscience, and computer science.},
+   author = {Martin N. Hebart and Adam H. Dickter and Alexis Kidder and Wan Y. Kwok and Anna Corriveau and Caitlin Van Wicklin and Chris I. Baker},
+   doi = {10.1371/JOURNAL.PONE.0223792},
+   isbn = {1111111111},
+   issn = {1932-6203},
+   issue = {10},
+   journal = {PLOS ONE},
+   keywords = {Computational neuroscience,Computer and information sciences,Computer imaging,Graphical user interfaces,Neural networks,Semantics,Vision,Visual object recognition},
+   month = {10},
+   pages = {e0223792},
+   pmid = {31613926},
+   publisher = {Public Library of Science},
+   title = {THINGS: A database of 1,854 object concepts and more than 26,000 naturalistic object images},
+   volume = {14},
+   url = {https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0223792},
+   year = {2019},
+}
+@article{Stoinski2023,
+   abstract = {To study visual and semantic object representations, the need for well-curated object concepts and images has grown significantly over the past years. To address this, we have previously developed THINGS, a large-scale database of 1854 systematically sampled object concepts with 26,107 high-quality naturalistic images of these concepts. With THINGSplus, we significantly extend THINGS by adding concept- and image-specific norms and metadata for all 1854 concepts and one copyright-free image example per concept. Concept-specific norms were collected for the properties of real-world size, manmadeness, preciousness, liveliness, heaviness, naturalness, ability to move or be moved, graspability, holdability, pleasantness, and arousal. Further, we provide 53 superordinate categories as well as typicality ratings for all their members. Image-specific metadata includes a nameability measure, based on human-generated labels of the objects depicted in the 26,107 images. Finally, we identified one new public domain image per concept. Property (M = 0.97, SD = 0.03) and typicality ratings (M = 0.97, SD = 0.01) demonstrate excellent consistency, with the subsequently collected arousal ratings as the only exception (r = 0.69). Our property (M = 0.85, SD = 0.11) and typicality (r = 0.72, 0.74, 0.88) data correlated strongly with external norms, again with the lowest validity for arousal (M = 0.41, SD = 0.08). To summarize, THINGSplus provides a large-scale, externally validated extension to existing object norms and an important extension to THINGS, allowing detailed selection of stimuli and control variables for a wide range of research interested in visual object processing, language, and semantic memory.},
+   author = {Laura M. Stoinski and Jonas Perkuhn and Martin N. Hebart},
+   doi = {10.3758/S13428-023-02110-8/FIGURES/3},
+   issn = {15543528},
+   journal = {Behavior Research Methods},
+   keywords = {Concrete concepts,Database,Object concepts,Object features,Object images,Semantic norms,Visual norms},
+   month = {4},
+   pages = {1-21},
+   publisher = {Springer},
+   title = {THINGSplus: New norms and metadata for the THINGS database of 1854 object concepts and 26,107 natural object images},
+   volume = {1},
+   url = {https://link.springer.com/article/10.3758/s13428-023-02110-8},
+   year = {2023},
+}
+@article{Bashivan2015,
+   abstract = {One of the challenges in modeling cognitive events from electroencephalogram
+(EEG) data is finding representations that are invariant to inter- and
+intra-subject differences, as well as to inherent noise associated with such
+data. Herein, we propose a novel approach for learning such representations
+from multi-channel EEG time-series, and demonstrate its advantages in the
+context of mental load classification task. First, we transform EEG activities
+into a sequence of topology-preserving multi-spectral images, as opposed to
+standard EEG analysis techniques that ignore such spatial information. Next, we
+train a deep recurrent-convolutional network inspired by state-of-the-art video
+classification to learn robust representations from the sequence of images. The
+proposed approach is designed to preserve the spatial, spectral, and temporal
+structure of EEG which leads to finding features that are less sensitive to
+variations and distortions within each dimension. Empirical evaluation on the
+cognitive load classification task demonstrated significant improvements in
+classification accuracy over current state-of-the-art approaches in this field.},
+   author = {Pouya Bashivan and Irina Rish and Mohammed Yeasin and Noel Codella},
+   journal = {4th International Conference on Learning Representations, ICLR 2016 - Conference Track Proceedings},
+   month = {11},
+   publisher = {International Conference on Learning Representations, ICLR},
+   title = {Learning Representations from EEG with Deep Recurrent-Convolutional Neural Networks},
+   url = {https://arxiv.org/abs/1511.06448v3},
+   year = {2015},
+}
+@article{Bai2023,
+   abstract = {This paper introduces DreamDiffusion, a novel method for generating
+high-quality images directly from brain electroencephalogram (EEG) signals,
+without the need to translate thoughts into text. DreamDiffusion leverages
+pre-trained text-to-image models and employs temporal masked signal modeling to
+pre-train the EEG encoder for effective and robust EEG representations.
+Additionally, the method further leverages the CLIP image encoder to provide
+extra supervision to better align EEG, text, and image embeddings with limited
+EEG-image pairs. Overall, the proposed method overcomes the challenges of using
+EEG signals for image generation, such as noise, limited information, and
+individual differences, and achieves promising results. Quantitative and
+qualitative results demonstrate the effectiveness of the proposed method as a
+significant step towards portable and low-cost ``thoughts-to-image'', with
+potential applications in neuroscience and computer vision. The code is
+available here \url\{https://github.com/bbaaii/DreamDiffusion\}.},
+   author = {Yunpeng Bai and Xintao Wang and Yan-pei Cao and Yixiao Ge and Chun Yuan and Ying Shan},
+   month = {6},
+   title = {DreamDiffusion: Generating High-Quality Images from Brain EEG Signals},
+   url = {https://arxiv.org/abs/2306.16934v2},
+   year = {2023},
+}
+@article{Singh2023,
+   abstract = {This paper will focus on electroencephalogram (EEG) signal analysis with an emphasis on common feature extraction techniques mentioned in the research literature, as well as a variety of applications that this can be applied to. In this review, we cover single and multi-dimensional EEG signal processing and feature extraction techniques in the time domain, frequency domain, decomposition domain, time-frequency domain, and spatial domain. We also provide pseudocode for the methods discussed so that they can be replicated by practitioners and researchers in their specific areas of biomedical work. Furthermore, we discuss artificial intelligence applications such as assistive technology, neurological disease classification, brain-computer interface systems, as well as their machine learning integration counterparts, to complete the overall pipeline design for EEG signal analysis. Finally, we discuss future work that can be innovated in the feature extraction domain for EEG signal analysis.},
+   author = {Anupreet Kaur Singh and Sridhar Krishnan},
+   doi = {10.3389/FRAI.2022.1072801/BIBTEX},
+   issn = {26248212},
+   journal = {Frontiers in Artificial Intelligence},
+   keywords = {EEG,assistive technology,brain-computer interaction,feature extraction,machine learning,signal analysis},
+   month = {1},
+   pages = {1072801},
+   publisher = {Frontiers Media S.A.},
+   title = {Trends in EEG signal feature extraction applications},
+   volume = {5},
+   year = {2023},
+}
